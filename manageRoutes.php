@@ -50,13 +50,13 @@
                 </a>
             </div>
                 <ul class="nav">
-                <li class="active">
+                <li >
                     <a href="addRoutes.php">
                         <i class="pe-7s-graph"></i>
                         <p>Add Routes</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="manageRoutes.php">
                         <i class="pe-7s-graph"></i>
                         <p>Manage Routes</p>
@@ -95,6 +95,34 @@
                                 <h4 class="title">Manage Route Details</h4>
                            </div>
                             <div class="content">
+                                
+                                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form">
+                            <input type="text" id="number" name="number" class="form-control">
+                            <label for="name" class="">Route number</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+
+                </div>
+                <!--Grid row-->
+
+              
+                                        <!--Grid row-->
+                                    <button class="btn btn-success"  style="margin-left:800px;">Update details</button>
+                                    
+                                    <button class="btn btn-danger"  style="margin-left:1000px; ">Delete details</button>
+                                    
+                                    
+                                    
+                                    </form>
                                
 
                                                     </div>
@@ -135,5 +163,25 @@
 
     	});
 	</script>
+    
+    <script type="text/javascript">
+          $(document).ready(function(e){
+              $("#search").keyup(function(){
+                    $("#here").show();
+                  var x =$(this).val();
+                  $.ajax({
+                      type:'GET',
+                      url:'fetch.php',
+                      data:'q='+x,
+                      success:function(data){
+                          $("#here").html(data);
+                      }
+                  });
+              });
+           
+          });
+          
+          </script>
+
 
 </html>

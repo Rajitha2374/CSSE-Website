@@ -1,3 +1,25 @@
+<?php
+    include 'routeclass.php';
+   
+?>
+<?php
+        $dst = new Route();
+        if(isset($_GET['delroute'])){
+        $sid = $_GET['delroute'];
+        $delstock = $dst->delStock($sid);
+    }
+  
+?>
+<?php
+    $av = new Route();
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+        $insertRoute = $av->insertRoute($_POST);
+    }
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -95,6 +117,9 @@
                                 <h4 class="title">Add Routes</h4>
                            </div>
                             <div class="content">
+                                
+                                <?php if(isset($insertRoute)){echo $insertRoute;}?>
+                                
                                 <form id="contact-form" name="contact-form" action="mail.php" method="POST">
 
                 <!--Grid row-->
@@ -103,7 +128,7 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form">
-                            <input type="text" id="number" name="number" class="form-control">
+                            <input type="text" id="number" name="routeid" class="form-control">
                             <label for="name" class="">Route number</label>
                         </div>
                     </div>
@@ -139,7 +164,7 @@
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <textarea type="text" id="des" name="des" rows="2" class="form-control md-textarea"></textarea>
+                            <textarea type="text" id="des" name="desk" rows="2" class="form-control md-textarea"></textarea>
                             <label for="message">Description</label>
                         </div>
 
