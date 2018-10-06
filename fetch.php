@@ -1,4 +1,4 @@
-//This file is for generate live search by using AJAX
+
 <?php
 include 'Database.php';
 ?>
@@ -15,7 +15,7 @@ if(!empty($_GET['q'])){
                   
                     <div class="col-md-6">
                         <div class="md-form">
-                            <input type="text" id="start" name="start" class="form-control" value="'.$output['start'].' >
+                            <input type="text" id="start" name="start" class="form-control" value="'.$output['start'].'" >
                             <label for="email" class="">Start</label>
                         </div>
                     </div>
@@ -25,7 +25,7 @@ if(!empty($_GET['q'])){
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form">
-                            <input type="text" id="end" name="end" class="form-control" value="'.$output['end'].'>
+                            <input type="text" id="end" name="end" class="form-control" value="'.$output['end'].'">
                             <label for="subject" class="">End</label>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ if(!empty($_GET['q'])){
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <textarea type="text" id="des" name="des" rows="2" class="form-control md-textarea" value="'.$output['desk'].'></textarea>
+                            <input type="text" id="des" name="des" rows="2" class="form-control md-textarea" value="'.$output['desk'].'"/>
                             <label for="message">Description</label>
                         </div>
 

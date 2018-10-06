@@ -30,8 +30,11 @@ class Route{
         }
    
             else{
-            $query = "INSERT INTO route(routeid,start,end,desk) VALUES(' $desc','$itemname','$start','$end','$desc')";
+            $query = "INSERT INTO route(routeid,start,end,desk) VALUES(' $routeid','$start','$end','$desc')";
             $bInsert = $this->db->insert($query);
+                   $msg=' <div id="logalert" class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Successfully Inserted</div>';
+            return $msg;
         
         }
     }
@@ -95,7 +98,7 @@ class Route{
            
         }else{
              $msg=' <div id="logalert" class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Brand could not be Removed !</div>';
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>could not be Removed !</div>';
             return $msg;
         }
         

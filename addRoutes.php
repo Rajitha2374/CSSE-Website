@@ -2,14 +2,7 @@
     include 'routeclass.php';
    
 ?>
-<?php
-        $dst = new Route();
-        if(isset($_GET['delroute'])){
-        $sid = $_GET['delroute'];
-        $delstock = $dst->delStock($sid);
-    }
-  
-?>
+
 <?php
     $av = new Route();
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
@@ -120,7 +113,7 @@
                                 
                                 <?php if(isset($insertRoute)){echo $insertRoute;}?>
                                 
-                                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                                <form id="contact-form" name="contact-form" action="addRoutes.php" method="POST">
 
                 <!--Grid row-->
                 <div class="row">
@@ -191,11 +184,12 @@
                                             </div>
                                         </div>
                                         <!--Grid row-->
-                                    <button class="btn btn-success"  style="margin-left:800px;">Add details</button>
+                                    <button type="submit" name="submit" class="btn btn-success"  style="margin-left:800px;">Add details</button>
                                     
                                     
                                     
                                     </form>
+                                
 
                                                     </div>
                                                 </div>

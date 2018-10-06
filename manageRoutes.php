@@ -1,3 +1,21 @@
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+    $sid=$_POST['search'];
+    $InsertEvaluation = $form->InsertEvaluation($_POST,$sid);
+}
+?>
+
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['DEL'])) {
+    $sid=$_POST['search'];
+    $InsertEvaluation = $form->InsertEvaluation($_POST,$sid);
+}
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -96,7 +114,17 @@
                            </div>
                             <div class="content">
                                 
-                                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                                
+                                
+                                
+                                           
+                <?php 
+                        if(isset($InsertEvaluation)){
+                            
+                            echo $InsertEvaluation;
+                        }
+                 ?> 
+                                <form id="contact-form" name="contact-form" action="manageRoutes.php" method="POST">
 
                 <!--Grid row-->
                 <div class="row">
@@ -104,21 +132,24 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form">
-                            <input type="text" id="number" name="number" class="form-control">
+                            <input type="text" id="search" name="search" class="form-control">
                             <label for="name" class="">Route number</label>
                         </div>
                     </div>
+                    
+                    <div id="here"></div>
                     <!--Grid column-->
-
+                    <button class="btn btn-success"  style="margin-left:800px;margin-bottom:-60px;">Update details</button>
+                                    
+                                  
+                               <button class="btn btn-danger" onclick="return confirm('Are you sure to delete !')"  name="DEL" style="margin-left:1000px;"><em class="fa fa-trash"></em>Delete details</button>
+                        
 
                 </div>
                 <!--Grid row-->
-
               
                                         <!--Grid row-->
-                                    <button class="btn btn-success"  style="margin-left:800px;">Update details</button>
                                     
-                                    <button class="btn btn-danger"  style="margin-left:1000px; ">Delete details</button>
                                     
                                     
                                     
